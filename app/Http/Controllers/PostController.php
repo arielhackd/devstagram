@@ -6,9 +6,13 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //CREAMOS LA FUNCION INDEX PARA MOSTRAR RUTA
     public function index()
     {
-        dd(auth()->user());
+        return view('dashboard');
     }
 }
