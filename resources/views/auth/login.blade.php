@@ -10,8 +10,13 @@ Inicia Sesión en DevStagram
             <img src="{{ asset('img/login.jpg')}}" alt="Imagen de login de usuarios">
         </div>
         <div class="md:w-4/12 bg-white p-6 rounder-lg shadow-xl">
-            <form >
+            <form action="{{route('login')}}" method="POST" novalidate>
                 @csrf
+                @if(session('mensaje'))
+                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
+                        {{session('mensaje')}}
+                    </p>
+                @endif
                 <div class="mb-5">
                     <label class="mb-2 block uppercase text-gray-500 font-bold" for="email">
                         Email
